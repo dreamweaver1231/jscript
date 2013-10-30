@@ -7,40 +7,49 @@
 
 
 $(document).ready(function() {
-    var select = $('.item'),
-            options9 = ["<option>View Trip Details</option>", '<option value="——————"disabled>—————</option>', "<option>Enroll</option>"],
-            options11 = ["<option>View/Edit Contract</option>","<option>Edit Information</option>", '<option value="——————"disabled>—————</option>',"<option>Resend Activation Code</option>","<option>Unenroll</option>"],
-            options13 = ["<option>Create Contract</option>","<option>Edit Information</option>", '<option value="——————"disabled>—————</option>',"<option>Unenroll</option>"],
-            options14 = ["<option>Enroll</option>"],
-            role, options;
-
-    role = options14
+    var select = $('.operatorRole')
+    strLine = "------------------";//"—————————————";
+    options1 = ["<option>Select</option>", "<option>View Trip Details</option>", "<option>View/Edit Contract</option>", "<option>Edit Information</option>", '<option value="' + strLine + '"disabled>' + strLine + '</option>', "<option>Resend Activation Code</option>", "<option>Unenroll</option>"],
+            options2 = ["<option>Select</option>", "<option>View Trip Details</option>", '<option value="' + strLine + '"disabled>' + strLine + '</option>', "<option>Enroll</option>"],
+            options3 = ["<option>Select</option>", "<option>View/Edit Contract</option>", "<option>Edit Information</option>", '<option value="' + strLine + '"disabled>' + strLine + '</option>', "<option>Resend Activation Code</option>", "<option>Unenroll</option>"],
+            options4 = ["<option>Select</option>", "<option>Create Contract</option>", "<option>Edit Information</option>", '<option value="' + strLine + '"disabled>' + strLine + '</option>', "<option>Unenroll</option>"],
+            options5 = ["<option>Select</option>", "<option>Enroll</option>"],
+            role = options1
     switch (role) {
-        case options9:
-            options = options9
+        case options1:
+            options = options1
             for (i = 0; i < options.length; i++) {
                 $(select).append(options[i]);
             }
             break;
-        case options11:
-            options = options11
+        case options2:
+            options = options2
             for (i = 0; i < options.length; i++) {
                 $(select).append(options[i]);
             }
             break;
-        case options13:
-            options = options13
+        case options3:
+            options = options3
             for (i = 0; i < options.length; i++) {
                 $(select).append(options[i]);
             }
             break;
-        case options14:
-            options = options14
+        case options4:
+            options = options4
             for (i = 0; i < options.length; i++) {
                 $(select).append(options[i]);
             }
             break;
-
+        case options5:
+            options = options5
+            for (i = 0; i < options.length; i++) {
+                $(select).append(options[i]);
+            }
+            break;
     }
-
+    $('.operatorRole').change(function() {
+        alert("Hi")
+        html='<td>Thomas</td><td>2453</td><td>50</td><td>0</td><td>0</td><td>0</td><td><select class="operatorRole" ></select></td>'
+        $(this).after(html);
+    });
 });
