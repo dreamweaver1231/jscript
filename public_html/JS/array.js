@@ -50,7 +50,7 @@ $(document).ready(function() {
     $("#dbOperatorTbl tr select").on('change', function(e) {
         $('#dynamicdataTable').remove();
         row_index = $(this).closest('td').parent()[0].sectionRowIndex;
-        html=("<table id='dynamicdataTable' border='1px' width='100%'><thead></thead><tbody></tbody></table>");
+        html=("<table id='dynamicdataTable' border='1px' width='202%'><thead></thead><tbody></tbody></table>");
         $('#dbOperatorTbl > tbody > tr:eq(' + row_index + ')').after(html);
         $("#dynamicdataTable").jsonTable({
             head: ['Trips', 'Miles', 'Pts.', 'Geoconference', 'Curfew', 'Speed'],
