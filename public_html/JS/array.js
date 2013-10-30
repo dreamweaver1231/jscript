@@ -47,9 +47,26 @@ $(document).ready(function() {
             }
             break;
     }
-    $('.operatorRole').change(function() {
-        alert("Hi")
-        html='<td>Thomas</td><td>2453</td><td>50</td><td>0</td><td>0</td><td>0</td><td><select class="operatorRole" ></select></td>'
-        $(this).after(html);
+    $("#dbOperatorTbl tr select").on('change', function(e) {
+        $('#dynamicdataTable').remove();
+        row_index = $(this).closest('td').parent()[0].sectionRowIndex;
+        html=("<table id='dynamicdataTable' border='1px' width='100%'><thead></thead><tbody></tbody></table>");
+        $('#dbOperatorTbl > tbody > tr:eq(' + row_index + ')').after(html);
+        $("#dynamicdataTable").jsonTable({
+            head: ['Trips', 'Miles', 'Pts.', 'Geoconference', 'Curfew', 'Speed'],
+            json: ['Trips', 'Miles', 'Pts.', 'Geoconference', 'Curfew', 'Speed']
+        });
+
+        $("#dynamicdataTable").jsonTableUpdate({
+            source: "data.json",
+            rowClass: "rowClass",
+            callback: function() {
+//			$("#mssg").html("Table updated at " + new Date());
+            }
+        });
     });
+
 });
+
+
+

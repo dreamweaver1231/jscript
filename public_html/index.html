@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>jQuery : jsonTable</title>
+        <script type="text/javascript" src="JS/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="jsonTable.js"></script>
+	<style type="text/css">
+	.rowClass td
+	{
+		border: 1px solid #c1c1c1;
+	}
+	</style>
+</head>
+<body>
+<div id="mssg"></div>
+<table>
+    <td> 
+    
+    </td>
+    <td> 
+    
+    </td>    
+</table>
+
+<table id="dynamicdataTable">
+	<thead>
+	</thead>
+	<tbody>
+	</tbody>
+</table>
+<script type="text/javascript">
+	$("#dynamicdataTable").jsonTable({
+                head : ['Trips','Miles','Pts.','Geoconference','Curfew','Speed'],
+		json : ['Trips','Miles','Pts.','Geoconference','Curfew','Speed']
+	});
+
+	$("#dynamicdataTable").jsonTableUpdate({
+		source : "data.json",
+		rowClass : "rowClass",
+		callback : function(){
+//			$("#mssg").html("Table updated at " + new Date());
+		}
+	});
+</script>
+</body>
+</html>
